@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #14101F;
+  --pink: #FF3D80;
+  --pink-tint: #FFE0EC;
+  --blue: #D9EBFF;
+  --peach: #FFE1D1;
+  --lavender: #E6DFFF;
+  --yellow: #FFE14D;
+  --mint: #CDF3DC;
+  --mint-ink: #178A47;
+  --muted: #6E6A80;
+  --surface: #F5F2FB;
+  --track: #ECEAF4;
+  --bg: #FFFFFF;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-pink: var(--pink);
+  --color-pink-tint: var(--pink-tint);
+  --color-blue: var(--blue);
+  --color-peach: var(--peach);
+  --color-lavender: var(--lavender);
+  --color-yellow: var(--yellow);
+  --color-mint: var(--mint);
+  --color-mint-ink: var(--mint-ink);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-track: var(--track);
+  --color-bg: var(--bg);
+
+  --font-display: "Bricolage Grotesque", sans-serif;
+  --font-body: "Figtree", sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+/* Hard shadow utility */
+.shadow-hard {
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.shadow-hard-sm {
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.shadow-hard-pink {
+  box-shadow: 4px 4px 0 var(--pink);
+}
+
+/* Border utility */
+.border-ink {
+  border: 2px solid var(--ink);
+}
+
+/* Pressed state */
+.pressed {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+/* Card accent backgrounds */
+.accent-blue { background-color: var(--blue); }
+.accent-peach { background-color: var(--peach); }
+.accent-lavender { background-color: var(--lavender); }
+.accent-yellow { background-color: var(--yellow); }
+.accent-mint { background-color: var(--mint); }
+
+/* Prevent drag ghosting */
+.no-drag {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  touch-action: pan-y;
+}
+
+/* Skeleton shimmer */
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, var(--surface) 25%, var(--track) 50%, var(--surface) 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
